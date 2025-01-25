@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6b6b16ad75c44eab5393ce55aff35f, type: 3}
+  m_Name: RealityHackVisualSettings
+  m_EditorClassIdentifier: 
+  BranchSettings:
+    BranchRotationOffset: {x: 0, y: 1, z: 0, w: -0.00000004371139}
+    BranchSizeMult: 0.5
+    BranchPrefabs:
+    - {fileID: 5598563013821766810, guid: 99d1bb60e05ad456c97c8986aa003db3, type: 3}
+    - {fileID: 4808355425670598672, guid: 5c138692ec9e443f5aa1cae2310f0afb, type: 3}
+    - {fileID: 3535200301867861009, guid: 4bd630c4ee1c645c5b5c2affcf390a4d, type: 3}
