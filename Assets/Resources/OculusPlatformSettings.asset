@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: OculusPlatformSettings
   m_EditorClassIdentifier: 
   ovrAppID: 
-  ovrMobileAppID: 
+  ovrMobileAppID: 9035926363162221
   ovrUseMobileAppIDInEditor: 0
   ovrUseStandalonePlatform: 1
