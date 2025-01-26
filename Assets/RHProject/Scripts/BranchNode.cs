@@ -9,6 +9,7 @@ public class BranchNode : MonoBehaviour
     [SerializeField] private MeshRenderer mr;
 
     [field: SerializeField] public string BranchTopic { get; private set; }
+    [field: SerializeField] public string BranchSummary { get; private set; }
 
     [field: SerializeField] public int AttemptCount { get; private set; }
 
