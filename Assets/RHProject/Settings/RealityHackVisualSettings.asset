@@ -24,3 +24,4 @@ MonoBehaviour:
     FirstBranch: {fileID: 4281013940985777427, guid: 6ed06f16952044cfabf8e48d24c5792e, type: 3}
     SecondBigBranch: {fileID: 2004991467548550908, guid: 06861e0b2dfe44a36a5103e56c0a1025, type: 3}
     Trunk: {fileID: 7114041141151508636, guid: 2064ccbfbb1b44010849b740fc9641d0, type: 3}
+    LabelPrefab: {fileID: 6129501975794990029, guid: 7f08cc3faef634716901a7816de5d755, type: 3}

@@ -1,18 +1,23 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using TMPro;
 
 [RequireComponent(typeof(MeshRenderer))]
 public class BranchNode : MonoBehaviour
 {
     public List<BranchSocket> BranchSockets = new List<BranchSocket>();
 
-    [SerializeField] private MeshRenderer mr;
-
+    [SerializeField] 
+    private MeshRenderer mr;
+    [SerializeField]
+    private Transform labelSpawnTransform;
     [field: SerializeField] public string BranchTopic { get; private set; }
 
     [field: SerializeField] public int AttemptCount { get; private set; }
 
+    private Vector3 targetScale;
+    private Coroutine scaleBranchCoroutine = null;
     private void Reset()
     {
         // Grab the mesh renderer and any BranchSockets under this node
@@ -35,6 +40,12 @@ public class BranchNode : MonoBehaviour
     public void SetBranchTopic(string topic)
     {
         BranchTopic = topic;
+        var bs = RealityHackSettings.Instance.BranchSettings;
+        GameObject textPrefab = bs.GetLabelPrefab();
+        GameObject label = Instantiate(textPrefab, labelSpawnTransform.position, Quaternion.identity, labelSpawnTransform);
+        TextMeshPro labelText = label.GetComponent<TextMeshPro>();
+        labelText.text = topic;
+        label.transform.LookAt(Camera.main.transform);
         gameObject.name = $"BranchNode({topic})";
     }
 
@@ -160,28 +171,34 @@ public class BranchNode : MonoBehaviour
 
     public void SetBranchGrow(int curStep){
         // Start a coroutine to scale the branch up from 0 to 1 using BranchSettings
-        StartCoroutine(ScaleBranch(curStep));
+        // If coroutine already active, just update the target scale
+        if(scaleBranchCoroutine != null){
+            targetScale = Vector3.one * RealityHackSettings.Instance.BranchSettings.GetBranchScale(curStep);
+            return;
+        }
+        scaleBranchCoroutine = StartCoroutine(ScaleBranch(curStep));
     }
     private IEnumerator ScaleBranch(int curStep)
     {
         var bs = RealityHackSettings.Instance.BranchSettings;
         float scale = bs.GetBranchScale(curStep);
         bool isFirstStep = curStep == 1;
-        float duration = isFirstStep ? bs.BranchGrowDuration * 2 : bs.BranchGrowDuration;
+        float duration = isFirstStep ? bs.BranchGrowDuration / 2.0f : bs.BranchGrowDuration;
         float elapsedTime = 0.0f;
         Vector3 startScale = transform.localScale;
-        Vector3 endScale = new Vector3(scale, scale, scale);
+        targetScale = Vector3.one * scale;
 
         while (elapsedTime < duration)
         {
             float t = elapsedTime / duration;
             t = Mathf.SmoothStep(0, 1, t);
-            transform.localScale = Vector3.Lerp(startScale, endScale, t);
+            transform.localScale = Vector3.Lerp(startScale, targetScale, t);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-        transform.localScale = endScale;
+        transform.localScale = targetScale;
+        scaleBranchCoroutine = null;
     }
         public MajorBranchSocket FindFirstMajorBranchSocketInSubtree(SequenceState desiredState)
     {

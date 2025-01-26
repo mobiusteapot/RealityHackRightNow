@@ -32,6 +32,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7881078421503120124}
   - {fileID: 7851830652822088074}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -100,8 +101,40 @@ MonoBehaviour:
   BranchSockets:
   - {fileID: 4330163328682784742}
   mr: {fileID: 5151541007839339534}
+  labelSpawnTransform: {fileID: 0}
   <BranchTopic>k__BackingField: 
   <AttemptCount>k__BackingField: 0
+--- !u!1 &6642929260652161069
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7881078421503120124}
+  m_Layer: 0
+  m_Name: LabelSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7881078421503120124
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6642929260652161069}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.000000081460335, y: -8.863035e-22, z: 1.0880186e-14, w: 1}
+  m_LocalPosition: {x: 3.22, y: -0, z: 1.64}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3400785013703760113}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8246631993955944719
 GameObject:
   m_ObjectHideFlags: 0

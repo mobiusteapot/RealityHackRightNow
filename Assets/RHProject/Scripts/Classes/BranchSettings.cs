@@ -12,6 +12,7 @@ public class BranchSettings
     public GameObject FirstBranch;
     public GameObject SecondBigBranch;
     public GameObject Trunk;
+    public GameObject LabelPrefab;
 
     public GameObject GetTrunkPrefab()
     {
@@ -44,5 +45,10 @@ public class BranchSettings
             return 1.0f;
         }
         return (curStep / (float)BranchGrowSteps);
+    }
+
+    public GameObject GetLabelPrefab()
+    {
+        return LabelPrefab;
     }
 }

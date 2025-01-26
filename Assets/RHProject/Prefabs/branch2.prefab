@@ -28,10 +28,11 @@ Transform:
   m_GameObject: {fileID: 4968568309481176142}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0047566537, y: 0.10046547, z: -0.024269218, w: 0.99463314}
-  m_LocalPosition: {x: -0.38809386, y: 9.22232, z: -1.822821}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.99999994, y: 1, z: 0.99999994}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7143028118846513254}
   - {fileID: 3887006979381005306}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -100,6 +101,7 @@ MonoBehaviour:
   BranchSockets:
   - {fileID: 6149970103882156691}
   mr: {fileID: 7212130191965272240}
+  labelSpawnTransform: {fileID: 7143028118846513254}
   <BranchTopic>k__BackingField: 
   <AttemptCount>k__BackingField: 0
 --- !u!1 &7443020267013730078
@@ -147,3 +149,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BranchNode: {fileID: 0}
+--- !u!1 &8569510809966585124
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7143028118846513254}
+  m_Layer: 0
+  m_Name: LabelSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7143028118846513254
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8569510809966585124}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.0047566537, y: -0.10046547, z: 0.024269218, w: 0.99463314}
+  m_LocalPosition: {x: -0.36, y: 5.17, z: -2.89}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5861038061270533156}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

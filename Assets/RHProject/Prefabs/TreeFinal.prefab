@@ -195,6 +195,7 @@ MonoBehaviour:
   - {fileID: 1863810764778012251}
   - {fileID: 2149905959099274685}
   mr: {fileID: 7038385770533973908}
+  labelSpawnTransform: {fileID: 0}
   <BranchTopic>k__BackingField: 
   <AttemptCount>k__BackingField: 0
 --- !u!114 &3841352777542621965
@@ -235,13 +236,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8063235704010539200}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.80679244, y: -0.5844278, z: -0.060642697, w: -0.062070068}
+  m_LocalRotation: {x: 0.76850593, y: -0.59302413, z: -0.19232915, w: 0.14398153}
   m_LocalPosition: {x: -0.37, y: 5.64, z: 0.31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2029247931117619754}
-  m_LocalEulerAnglesHint: {x: 181.146, y: 21.007004, z: 16.110992}
+  m_LocalEulerAnglesHint: {x: 180.39, y: 27.800003, z: 75.215}
 --- !u!114 &1863810764778012251
 MonoBehaviour:
   m_ObjectHideFlags: 0
