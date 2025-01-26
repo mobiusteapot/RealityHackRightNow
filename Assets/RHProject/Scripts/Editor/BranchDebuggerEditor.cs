@@ -48,11 +48,12 @@ public class BranchDebuggerEditor : Editor
         newBranchTopic = EditorGUILayout.TextField("New Branch Topic", newBranchTopic);
         if (GUILayout.Button("Add New Branch"))
         {
+            var sequenceState = getFirstBranchPrefab ? SequenceState.FirstBranch : SequenceState.Default;
             if (string.IsNullOrWhiteSpace(newBranchTopic))
             {
                 Debug.LogWarning("New branch topic cannot be empty.");
             }
-            else if (!branchNode.TryAddNewBranch(newBranchTopic, getFirstBranchPrefab))
+            else if (!branchNode.TryAddNewBranch(newBranchTopic, sequenceState))
             {
                 Debug.LogWarning($"Failed to add new branch with topic '{newBranchTopic}'. All child branches might be full.");
             }
