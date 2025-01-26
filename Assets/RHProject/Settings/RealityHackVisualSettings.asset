@@ -13,9 +13,15 @@ MonoBehaviour:
   m_Name: RealityHackVisualSettings
   m_EditorClassIdentifier: 
   BranchSettings:
-    BranchRotationOffset: {x: 0, y: 1, z: 0, w: -0.00000004371139}
-    BranchSizeMult: 0.5
+    BranchRotationOffset: {x: 0.7071068, y: -0.7071068, z: 0, w: 0}
+    BranchGrowDuration: 1
+    BranchGrowSteps: 4
     BranchPrefabs:
-    - {fileID: 5598563013821766810, guid: 99d1bb60e05ad456c97c8986aa003db3, type: 3}
-    - {fileID: 4808355425670598672, guid: 5c138692ec9e443f5aa1cae2310f0afb, type: 3}
-    - {fileID: 3535200301867861009, guid: 4bd630c4ee1c645c5b5c2affcf390a4d, type: 3}
+    - {fileID: 4968568309481176142, guid: e02ac27b35f244e21b02e4a7a97dabf4, type: 3}
+    - {fileID: 473790122456491510, guid: b6d6ab5f76a654846a759ce0d97de2a1, type: 3}
+    - {fileID: 4637627200336350158, guid: 5888e95e7d63d4480ba8a724aedc8007, type: 3}
+    - {fileID: 4306876663469140312, guid: 51b147d08a0b44998a8cf3d74804d040, type: 3}
+    FirstBranch: {fileID: 4281013940985777427, guid: 6ed06f16952044cfabf8e48d24c5792e, type: 3}
+    SecondBigBranch: {fileID: 2004991467548550908, guid: 06861e0b2dfe44a36a5103e56c0a1025, type: 3}
+    Trunk: {fileID: 7114041141151508636, guid: 2064ccbfbb1b44010849b740fc9641d0, type: 3}
+    LabelPrefab: {fileID: 6129501975794990029, guid: 7f08cc3faef634716901a7816de5d755, type: 3}

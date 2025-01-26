@@ -1,15 +1,27 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 using Fusion;
 
 public class ChangeTreeTest : NetworkBehaviour
 {
-    [SerializeField]
+    // Dynamically fetched on start with delay....?
+    public float GetBranchDelay = 1.0f;
     private BranchNode parentBranchNode;
 
     [SerializeField]
     private InputField inputField;
 
+    private void Start()
+    {
+        // Get first component of class BranchParentSocket
+        StartCoroutine(DelayedGetBranchNode());
+    }
+    private IEnumerator DelayedGetBranchNode()
+    {
+        yield return new WaitForSeconds(GetBranchDelay);
+        parentBranchNode = FindAnyObjectByType<BranchParentSocket>().BranchNode;
+    }
     public void OnInputSent()
     {
         Debug.Log("OnInputSent from ChangeTreeTest");

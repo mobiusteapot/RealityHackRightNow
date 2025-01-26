@@ -5,10 +5,27 @@ using System.Collections.Generic;
 public class BranchSettings 
 {
     public Quaternion BranchRotationOffset;
-    public float BranchSizeMult;
+    public float BranchGrowDuration;
+    public int BranchGrowSteps = 4;
     // Parent prefab which has a BranchNode component
     public List<GameObject> BranchPrefabs;
+    public GameObject FirstBranch;
+    public GameObject SecondBigBranch;
+    public GameObject Trunk;
+    public GameObject LabelPrefab;
 
+    public GameObject GetTrunkPrefab()
+    {
+        return Trunk;
+    }
+    public GameObject GetFirstBranchPrefab()
+    {
+        return FirstBranch;
+    }
+    public GameObject GetSecondBigBranchPrefab()
+    {
+        return SecondBigBranch;
+    }
 
     public GameObject GetRandomBranchPrefab()
     {
@@ -19,5 +36,19 @@ public class BranchSettings
         }
 
         return BranchPrefabs[Random.Range(0, BranchPrefabs.Count)];
+    }
+    
+    public float GetBranchScale(int curStep){
+        // If past branch grow steps, then return 1
+        if (curStep >= BranchGrowSteps)
+        {
+            return 1.0f;
+        }
+        return (curStep / (float)BranchGrowSteps);
+    }
+
+    public GameObject GetLabelPrefab()
+    {
+        return LabelPrefab;
     }
 }
