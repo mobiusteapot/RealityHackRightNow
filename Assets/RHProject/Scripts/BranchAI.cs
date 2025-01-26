@@ -25,7 +25,7 @@ public class  BranchAi : MonoBehaviour
         _msgs.Add(new Message(
             Role.System,
             "Summarize the given text. Include main points, distinct ideas, and general categories to organize ideas. " +
-            "Additionally, provide a single keyword that best represents the text, separate it by saying, Keyword:"
+            "Also, provide a single keyword that best represents the text, separate it by saying, Keyword:"
         ));
         
         _msgs.Add(new Message(Role.User, userInput));
