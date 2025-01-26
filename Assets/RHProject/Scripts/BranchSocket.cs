@@ -6,7 +6,7 @@ public class BranchSocket : MonoBehaviour
 
     public bool IsFull => BranchNode != null;
 
-    public bool TryAddNewBranch(string topic)
+    public bool TryAddNewBranch(string topic, bool forceFirstPrefab = false)
     {
         if (IsFull)
         {
@@ -15,8 +15,9 @@ public class BranchSocket : MonoBehaviour
 
         var branchSettings = RealityHackSettings.Instance.BranchSettings;
         var rotOffset = transform.rotation * branchSettings.BranchRotationOffset;
+        GameObject branchPrefab = forceFirstPrefab ? branchSettings.GetFirstBranchPrefab() : branchSettings.GetRandomBranchPrefab();
         // Todo: Get the prefab from the settings asset
-        var newBranchNodeObject = Instantiate(branchSettings.GetRandomBranchPrefab(), transform.position, rotOffset, transform);
+        var newBranchNodeObject = Instantiate(branchPrefab, transform.position, rotOffset, transform);
         Debug.Log($"Instantiated new branch node object: {newBranchNodeObject.name}");
         newBranchNodeObject.transform.localScale = Vector3.one * branchSettings.BranchSizeMult;
         var newBranchNode = newBranchNodeObject.GetComponent<BranchNode>();

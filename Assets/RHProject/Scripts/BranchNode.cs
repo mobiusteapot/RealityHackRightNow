@@ -30,7 +30,7 @@ public class BranchNode : MonoBehaviour
         gameObject.name = $"BranchNode({topic})";
     }
 
-    public bool TryAddNewBranch(string newBranchTopic)
+    public bool TryAddNewBranch(string newBranchTopic, bool forceFirstPrefab = false)
     {
         BranchNode existingNode = FindNodeInSubtree(newBranchTopic);
         if (existingNode != null)
@@ -43,7 +43,7 @@ public class BranchNode : MonoBehaviour
         {
             if (!socket.IsFull)
             {
-                socket.TryAddNewBranch(newBranchTopic);
+                socket.TryAddNewBranch(newBranchTopic, forceFirstPrefab);
 
                 if (socket.BranchNode != null)
                 {
@@ -56,7 +56,7 @@ public class BranchNode : MonoBehaviour
 
         foreach (var socket in BranchSockets)
         {
-            if (socket.BranchNode != null && socket.BranchNode.TryAddNewBranch(newBranchTopic))
+            if (socket.BranchNode != null && socket.BranchNode.TryAddNewBranch(newBranchTopic, forceFirstPrefab))
             {
                 return true;
             }

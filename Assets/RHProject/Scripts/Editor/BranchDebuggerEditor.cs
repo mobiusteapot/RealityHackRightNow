@@ -11,6 +11,7 @@ public class BranchDebuggerEditor : Editor
     private string targetTopic = "";
     private string childTopic = "";
     private string topicToCheck = "";
+    private bool getFirstBranchPrefab = false;
 
     private void OnEnable()
     {
@@ -42,6 +43,8 @@ public class BranchDebuggerEditor : Editor
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Add New Branch", EditorStyles.boldLabel);
 
+        // Add checkbox for forcing the first branch prefab
+        getFirstBranchPrefab = EditorGUILayout.Toggle("Force First Branch Prefab", getFirstBranchPrefab);
         newBranchTopic = EditorGUILayout.TextField("New Branch Topic", newBranchTopic);
         if (GUILayout.Button("Add New Branch"))
         {
@@ -49,7 +52,7 @@ public class BranchDebuggerEditor : Editor
             {
                 Debug.LogWarning("New branch topic cannot be empty.");
             }
-            else if (!branchNode.TryAddNewBranch(newBranchTopic))
+            else if (!branchNode.TryAddNewBranch(newBranchTopic, getFirstBranchPrefab))
             {
                 Debug.LogWarning($"Failed to add new branch with topic '{newBranchTopic}'. All child branches might be full.");
             }

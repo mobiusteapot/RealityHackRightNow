@@ -8,7 +8,29 @@ public class BranchSettings
     public float BranchSizeMult;
     // Parent prefab which has a BranchNode component
     public List<GameObject> BranchPrefabs;
+    public GameObject FirstBranch;
+    public GameObject Trunk;
 
+    public GameObject GetTrunkPrefab()
+    {
+        if (Trunk == null)
+        {
+            Debug.LogError("No trunk prefab has been set in the settings asset.");
+            return null;
+        }
+
+        return Trunk;
+    }
+    public GameObject GetFirstBranchPrefab()
+    {
+        if (FirstBranch == null)
+        {
+            Debug.LogError("No first branch prefab has been set in the settings asset.");
+            return null;
+        }
+
+        return FirstBranch;
+    }
 
     public GameObject GetRandomBranchPrefab()
     {
