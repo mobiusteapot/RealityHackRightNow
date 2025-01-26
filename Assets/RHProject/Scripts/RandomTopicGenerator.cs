@@ -8,13 +8,30 @@ public class RandomTopicGenerator : MonoBehaviour
     [SerializeField] private Button generateButton; // Reference to the Button
 
     [Header("Word List")]
-    [SerializeField] private string[] words = new string[]
+    public string[] words = new string[]
     {
-        "Apple", "Banana", "Cherry", "Dragonfruit", "Elderberry",
-        "Fig", "Grape", "Honeydew", "Kiwi", "Lemon", "Mango", "Nectarine",
-        "Orange", "Papaya", "Quince", "Raspberry", "Strawberry", "Tomato",
-        "Ugli", "Vanilla", "Watermelon", "Xigua", "Yam", "Zucchini"
+        "Backlog",
+        "Sprint",
+        "Deliverables",
+        "Retrospective",
+        "Kanban",
+        "Velocity",
+        "Stakeholders",
+        "Dependencies",
+        "Roadmap",
+        "Standup",
+        "MVP",
+        "Iteration",
+        "Burndown",
+        "UserStories",
+        "TechDebt",
+        "Release",
+        "Prioritization",
+        "Epics",
+        "Workflow",
+        "BlockingIssues"
     };
+
 
     private void Start()
     {

@@ -187,12 +187,15 @@ public class BranchNode : MonoBehaviour
         float duration = isFirstStep ? bs.BranchGrowDuration / 2.0f : bs.BranchGrowDuration;
         float elapsedTime = 0.0f;
         Vector3 startScale = transform.localScale;
-        targetScale = Vector3.one * scale;
+        Vector3 targetScale = Vector3.one * scale;
 
         while (elapsedTime < duration)
         {
             float t = elapsedTime / duration;
-            t = Mathf.SmoothStep(0, 1, t);
+
+            // Ease-out function: quadratic easing out
+            t = 1 - Mathf.Pow(1 - t, 2);
+
             transform.localScale = Vector3.Lerp(startScale, targetScale, t);
             elapsedTime += Time.deltaTime;
             yield return null;
@@ -200,6 +203,7 @@ public class BranchNode : MonoBehaviour
 
         transform.localScale = targetScale;
         scaleBranchCoroutine = null;
+
     }
         public MajorBranchSocket FindFirstMajorBranchSocketInSubtree(SequenceState desiredState)
     {
