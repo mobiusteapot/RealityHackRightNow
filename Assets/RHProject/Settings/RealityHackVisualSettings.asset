@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RealityHackVisualSettings
   m_EditorClassIdentifier: 
   BranchSettings:
-    BranchRotationOffset: {x: 1, y: 0, z: 0, w: 0}
+    BranchRotationOffset: {x: 0.7071068, y: -0.7071068, z: 0, w: 0}
     BranchGrowDuration: 1
     BranchGrowSteps: 4
     BranchPrefabs:

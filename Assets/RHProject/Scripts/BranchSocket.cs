@@ -15,7 +15,7 @@ public class BranchSocket : MonoBehaviour
 
         // Create the prefab
         var branchSettings = RealityHackSettings.Instance.BranchSettings;
-        var rotOffset = transform.rotation * branchSettings.BranchRotationOffset;
+        var rotOffset = transform.localRotation * branchSettings.BranchRotationOffset;
         GameObject branchPrefab = GetCorrectBranchPrefab(sequenceState);
 
         var newBranchNodeObject = Instantiate(branchPrefab, transform.position, rotOffset, transform);

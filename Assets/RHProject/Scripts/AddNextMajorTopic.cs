@@ -7,6 +7,7 @@ public class AddNextMajorTopic : NetworkBehaviour
 {
     // Dynamically fetched on start with delay....?
     public float GetBranchDelay = 1.0f;
+    [ReadOnly, SerializeField]
     private BranchNode parentBranchNode;
 
     [SerializeField]

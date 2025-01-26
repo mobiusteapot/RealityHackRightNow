@@ -40,20 +40,25 @@ public class BranchNode : MonoBehaviour
 
     public bool TryAddNewBranch(string newBranchTopic, SequenceState topicState = SequenceState.Default)
     {
-        // If topic state is not default, try to find a matching MajorBranchSocket
-        if (topicState != SequenceState.Default)
-        {
-            MajorBranchSocket majorSocket = FindFirstMajorBranchSocketInSubtree(topicState);
-            if (majorSocket != null)
-            {
-                return majorSocket.TryAddNewBranch(newBranchTopic, topicState);
-            }
-        }
         BranchNode existingNode = FindNodeInSubtree(newBranchTopic);
         if (existingNode != null)
         {
             existingNode.IncrementTopicAttempts(newBranchTopic);
             return true;
+        }
+                // If topic state is not default, try to find a matching MajorBranchSocket
+        if (topicState != SequenceState.Default)
+        {
+            MajorBranchSocket majorSocket = FindFirstMajorBranchSocketInSubtree(topicState);
+            if (majorSocket != null)
+            {
+                // If true, then make sure to call TreeScriptedSequence.Instance.IncrementSequenceState();
+                if(majorSocket.TryAddNewBranch(newBranchTopic, topicState)){
+                    TreeScriptedSequence.Instance.IncrementSequenceState();
+                    return true;
+                }
+            }
+            return false;
         }
 
         foreach (var socket in BranchSockets)

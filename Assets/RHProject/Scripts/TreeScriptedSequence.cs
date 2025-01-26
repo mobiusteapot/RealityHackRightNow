@@ -21,9 +21,12 @@ public class TreeScriptedSequence : MonoBehaviour
         }
     }
     public SequenceState GetCurrentState(){
-        var ssOut = sequenceState;
         // Increment the state to the next state, or if at the last state, stay at the last state
+        Debug.Log($"Current state: {sequenceState}");
+        return sequenceState;
+    }
+
+    public void IncrementSequenceState(){
         sequenceState = sequenceState == SequenceState.Default ? SequenceState.Default : sequenceState + 1;
-        return ssOut;
     }
 }
