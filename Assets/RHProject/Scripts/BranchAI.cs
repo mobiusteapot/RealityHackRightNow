@@ -24,7 +24,9 @@ public class  BranchAi : MonoBehaviour
         // Add system instruction to summarize the input and extract a keyword
         _msgs.Add(new Message(
             Role.System,
-            "Summarize the given text. Include main points, distinct ideas, and general categories to organize ideas. " +
+            "You are a summary assistant that help enhance human communication"+
+            "Summarize each user input with one short sentence."+
+            "The input is transcribed from live conversation"+
             "Also, provide a single keyword that best represents the text, separate it by saying, Keyword:"
         ));
         
@@ -47,6 +49,8 @@ public class  BranchAi : MonoBehaviour
 
         string summary = parts.Length > 0 ? parts[0].Trim() : "No summary provided.";
         string keyword = parts.Length > 1 ? parts[1].Trim() : "No keyword provided.";
+        Debug.Log("Summary: " + summary);
+        Debug.Log(keyword);
     }
 
 

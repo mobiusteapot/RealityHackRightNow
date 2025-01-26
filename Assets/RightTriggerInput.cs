@@ -12,12 +12,14 @@ public class RightTriggerInput : MonoBehaviour
     [SerializeField] private DictationService _dictationService;
     [SerializeField] private TextMeshProUGUI _input;
     [SerializeField] private String _msg;
+    [SerializeField] private BranchAi _branchAi;
 
     void Start()
     {
         _dictationActivation = FindObjectOfType<DictationActivation>();
         _dictationService = FindObjectOfType<DictationService>();
         _input = FindObjectOfType<MultiRequestTranscription>().GetComponent<TextMeshProUGUI>();
+        _branchAi = FindObjectOfType<BranchAi>();
         if (_input != null)
         {
             Debug.Log("inputField found");
@@ -44,6 +46,7 @@ public class RightTriggerInput : MonoBehaviour
                     _msg = ParseTranscript(_input.text);
                     //TODO: process text
                     Debug.Log(_msg);
+                    _branchAi.Summarize(_msg);
                 }
             }
         }
